@@ -1,11 +1,10 @@
 package test.up.day.day.com.daytest;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 
-public class LeakTestActivity extends AppCompatActivity {
+public class LeakTestActivity extends BaseActivity {
     private Button mStartThread = null;
     private static InnerClass innerClass;
 
@@ -28,10 +27,10 @@ public class LeakTestActivity extends AppCompatActivity {
 
     }
 
-    @Override
+   /* @Override
     protected void onDestroy() {
         Log.d("leak","call onDestroy in LeakTestActivity");
         super.onDestroy();
         MyApplication.getRefWatcher().watch(this);
-    }
+    }*/
 }

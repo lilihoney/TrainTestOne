@@ -1,15 +1,16 @@
 package test.up.day.day.com.daytest;
 
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
-import com.squareup.haha.trove.THash;
-
-public class MultiLeakActivity extends AppCompatActivity {
+/**
+ * created on 2017.10.10
+ * 测试多种内存泄漏的情况下LeakCanary的检测情况
+ * 测试结果：只报出了anonymous implementation of java.lang.Runnable
+ * */
+public class MultiLeakActivity extends BaseActivity {
 
     private Button mTest = null;
 
@@ -59,10 +60,10 @@ public class MultiLeakActivity extends AppCompatActivity {
         }).start();
     }
 
-    @Override
+   /* @Override
     protected void onDestroy() {
         Log.d("leak","call onDestroy in MultiLeakActivity");
         super.onDestroy();
         MyApplication.getRefWatcher().watch(this);
-    }
+    }*/
 }

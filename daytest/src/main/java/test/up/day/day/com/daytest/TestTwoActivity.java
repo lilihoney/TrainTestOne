@@ -1,15 +1,16 @@
 package test.up.day.day.com.daytest;
 
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-
-public class TestTwoActivity extends AppCompatActivity {
+/**
+ * created on 2017.10.10
+ * Handler引起的内存泄漏
+ * */
+public class TestTwoActivity extends BaseActivity {
     private Handler mHandler = new Handler();
     private Button mTest = null;
 
@@ -23,23 +24,25 @@ public class TestTwoActivity extends AppCompatActivity {
         mTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
 
-                    }
-                }, 30 * 1000);
-
-                finish();
             }
         });
 
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        }, 3* 60 * 1000);
+
+        finish();
+
     }
 
-    @Override
+    /*@Override
     protected void onDestroy() {
         Log.d("leak","call onDestroy in TestTwoActivity");
         super.onDestroy();
         MyApplication.getRefWatcher().watch(this);
-    }
+    }*/
 }
