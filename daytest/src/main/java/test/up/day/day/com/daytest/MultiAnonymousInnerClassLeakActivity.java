@@ -10,18 +10,18 @@ import android.widget.Button;
  * 测试多种内存泄漏的情况下LeakCanary的检测情况
  * 测试结果：只报出了anonymous implementation of java.lang.Runnable
  * */
-public class MultiLeakActivity extends BaseActivity {
+public class MultiAnonymousInnerClassLeakActivity extends BaseActivity {
 
     private Button mTest = null;
 
-    private Runnable runnable1 = new Runnable() {
+    /*private Runnable runnable1 = new Runnable() {
         @Override
         public void run() {
             while(true){
 
             }
         }
-    };
+    };*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +60,4 @@ public class MultiLeakActivity extends BaseActivity {
         }).start();
     }
 
-   /* @Override
-    protected void onDestroy() {
-        Log.d("leak","call onDestroy in MultiLeakActivity");
-        super.onDestroy();
-        MyApplication.getRefWatcher().watch(this);
-    }*/
 }

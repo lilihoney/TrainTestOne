@@ -9,7 +9,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:largeHeap="true">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,13 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LeakTestActivity" />
-        <activity android:name=".TestTwoActivity" />
-        <activity android:name=".MultiLeakActivity" />
+        <activity android:name=".StaticInnerClassLeakActivity" />
+        <activity android:name=".HandlerCauseLeakActivity" />
+        <activity android:name=".MultiAnonymousInnerClassLeakActivity" />
         <activity android:name=".SynchronizeTestActivity" />
         <activity android:name=".AnonymousLeakActivity" />
         <activity android:name=".TestSignedAndUnsignedActivity" />
-        <activity android:name=".JNITestActivity"></activity>
+        <activity android:name=".JNITestActivity" />
+        <activity android:name=".ThreadCauseLeakActivity" />
+        <activity android:name=".AsyncTaskCauseLeakActivity"></activity>
     </application>
 
 </manifest>

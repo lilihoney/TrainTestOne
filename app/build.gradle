@@ -1,13 +1,12 @@
-apply plugin: 'com.android.model.application'
+apply plugin: 'com.android.application'
 
-model{
-    android {
+android {
         compileSdkVersion 26
         buildToolsVersion "26.0.0"
         defaultConfig {
             applicationId "test.up.day.day.com.traintestone"
-            minSdkVersion.apiLevel = 15
-            targetSdkVersion.apiLevel = 26
+            minSdkVersion 15
+            targetSdkVersion 26
             versionCode 1
             versionName "1.0"
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -15,16 +14,11 @@ model{
         buildTypes {
             release {
                 minifyEnabled false
-                // com.android.application用下述方法
-//                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-                // com.android.model.application用下述方法
-                proguardFiles.add(file('proguard-android.txt'))
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
             }
         }
     }
-}
 
 //dependencies是gradle的配置
 dependencies {

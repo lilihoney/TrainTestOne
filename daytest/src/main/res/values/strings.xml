@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Day Test</string>
+    <string name="app_name">"内存泄漏测试"</string>
+    <string name="error_server">"服务器访问错误"</string>
+    <string name="compare_error">"比对失败"</string>
+    <string name="error_server_timeout">"网络请求超时"</string>
 </resources>

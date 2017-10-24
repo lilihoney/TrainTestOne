@@ -10,7 +10,6 @@ import android.util.Log;
 public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
-        Log.d("leak","call onDestroy in currentActivity");
         super.onDestroy();
 //        MyApplication.getRefWatcher().watch(this);
     }

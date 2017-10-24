@@ -1,37 +1,28 @@
-apply plugin: 'com.android.model.application'
+apply plugin: 'com.android.application'
 
-model {
-    android {
-        compileSdkVersion 26
-        buildToolsVersion "26.0.0"
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
 
-        defaultConfig {
-            applicationId "test.up.day.day.com.daytest"
-            minSdkVersion.apiLevel = 15
-            targetSdkVersion.apiLevel = 26
-            versionCode 1
-            versionName "1.0"
+    defaultConfig {
+        applicationId "test.up.day.day.com.daytest"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
 
-            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        }
-        buildTypes {
-            release {
-                minifyEnabled false
-//                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-                proguardFiles.add(file('proguard-android.txt'))
-            }
-        }
-
-        ndk {
-            //生成的so的名字
-            moduleName = "firstJNI"
-            ldLibs.addAll(['android', 'log'])
-            abiFilters.addAll(['armeabi', 'armeabi-v7a', 'arm64-v8a',
-                               'x86', 'x86_64',
-                               'mips', 'mips64'])
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //follow method is used when using plugin: 'com.android.model.application' for jni development
+//                proguardFiles.add(file('proguard-android.txt'))
         }
     }
+
 }
 
 
@@ -40,10 +31,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    //    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-//    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-//    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }

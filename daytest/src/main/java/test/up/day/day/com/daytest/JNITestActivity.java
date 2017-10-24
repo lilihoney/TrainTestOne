@@ -9,14 +9,14 @@ public class JNITestActivity extends AppCompatActivity {
         System.loadLibrary("firstJNI");
     }
 
-    public native String testJni();
+//    public native String testJni();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jnitest);
 
-        ((TextView)findViewById(R.id.tv_jnitest)).setText(testJni());
+//        ((TextView)findViewById(R.id.tv_jnitest)).setText(testJni());
 
     }
 }
